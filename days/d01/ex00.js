@@ -1,5 +1,5 @@
 module.exports = {
   helloWorld() {
-    return "hello world !2"
+    console.log("Hello world !")
   }
 }
