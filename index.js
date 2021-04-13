@@ -37,7 +37,7 @@ try {
   console.log('Testing: ', title)
 
   const fs = require('fs');
-  const files = fs.readdirSync('');
+  const files = fs.readdirSync('.');
 
   files.forEach(e => console.log(e))
 
