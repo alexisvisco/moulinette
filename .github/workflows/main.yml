@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: Test the day
         id: moulinette
-        uses: alexisvisco/moulinette@v1.11
+        uses: ./
