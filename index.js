@@ -1,5 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
+const { test } = require('uvu');
 
 
 const daysAndRushes = [
@@ -15,12 +16,6 @@ const daysAndRushes = [
   'd08',
   'r01',
 ]
-
-const exercicesPerDayOrRush = {
-  'd01': [
-    { fn: 'ex00', file: 'days/d01/ex00/index.js' }
-  ]
-}
 
 try {
   if (!github.context.payload || !github.context.payload.pull_request) {
@@ -40,16 +35,7 @@ try {
     return
   }
 
-  const exercices = exercicesPerDayOrRush[title]
-  const test = require(`tests/${title}.js`)
-
-  Promise.all(exercices.map(f => {
-    console.log(f.fn, f.file)
-    test[f.fn](f.file)
-  }))
-    .then(e => console.log('ok'))
-    .catch(err => core.setFailed(err))
-
+  require(`./tests/${title}.js`)
 } catch (ex) {
   core.setFailed(ex.message);
 }

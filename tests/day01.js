@@ -2,13 +2,9 @@ const path = require('path')
 const { test } = require('uvu');
 const assert = require('uvu/assert');
 
-module.exports = {
-  ex00(file) {
-    test('helloWorld', async () => {
+test('d01/ex00 - Hello world', async () => {
+  const { helloWorld } = require('../days/d01/ex00/index')
+  assert.is(helloWorld(), 'hello world !')
+})
 
-      const { helloWorld } = require(path.join('../', file))
-
-      assert.is(helloWorld(), 'hello world !')
-    })
-  }
-}
+test.run()
