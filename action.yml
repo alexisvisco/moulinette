@@ -1,0 +1,14 @@
+name: 'moulinette'
+description: 'Check if the current day is a success or not'
+branding:
+  color: blue
+  icon: check
+inputs:
+  pr_name:
+    default: ${{ github.event.pull_request.name }}
+outputs:
+  context:
+  pr_name:
+runs:
+  using: 'node12'
+  main: 'index.js'
