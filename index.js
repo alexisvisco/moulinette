@@ -31,11 +31,18 @@ try {
   }
 
   if (!daysAndRushes.includes(title)) {
-    core.setFailed('the title of the pull request must be one of : ' + daysAndRushes.join(','));
+    core.setFailed('the title of the pull request must be one of : ' + daysAndRushes.join(', '));
     return
   }
 
-  require(`./tests/${title}`)
+  switch (title) {
+    case 'd01':
+      require('./tests/day01');
+      break
+    case 'd02':
+      require('./tests/day02');
+      break
+  }
 } catch (ex) {
   core.setFailed(ex.message);
 }
