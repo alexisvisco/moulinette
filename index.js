@@ -35,7 +35,7 @@ try {
     return
   }
 
-  require(`./tests/day01`)
+  require(`./tests/${title}`)
 } catch (ex) {
   core.setFailed(ex.message);
 }
