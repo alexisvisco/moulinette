@@ -3,7 +3,7 @@ on: [pull_request]
 jobs:
   moulinette:
     runs-on: ubuntu-latest
-    name: test the day
+    name: test the day yehhhh
     steps:
       - name: Test the day
         id: moulinette
