@@ -1,0 +1,10 @@
+on: [pull_request]
+
+jobs:
+  moulinette:
+    runs-on: ubuntu-latest
+    name: test the day
+    steps:
+      - name: Test the day
+        id: moulinette
+        uses: actions/moulinette@v1
