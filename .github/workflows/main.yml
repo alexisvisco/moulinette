@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     name: test the day yehhhh
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Test the day
         id: moulinette
         uses: ./
