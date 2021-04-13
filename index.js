@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 
-const validTitles = [
+const daysAndRushes = [
   'd01',
   'd02',
   'd03',
@@ -15,6 +15,12 @@ const validTitles = [
   'd08',
   'r01',
 ]
+
+const exercicesPerDayOrRush = {
+  'd01': [
+    { fn: 'ex00', file: 'days/d01/ex00/index.js' }
+  ]
+}
 
 try {
   if (!github.context.payload || !github.context.payload.pull_request) {
@@ -29,18 +35,20 @@ try {
     return
   }
 
-  if (!validTitles.includes(title)) {
-    core.setFailed('the title of the pull request must be one of : ' + validTitles.join(','));
+  if (!daysAndRushes.includes(title)) {
+    core.setFailed('the title of the pull request must be one of : ' + daysAndRushes.join(','));
     return
   }
 
-  console.log('Testing: ', title)
+  const exercices = exercicesPerDayOrRush[title]
+  const test = require(`tests/${title}.js`)
 
-  const fs = require('fs');
-  const files = fs.readdirSync('.');
-
-  files.forEach(e => console.log(e))
-
+  Promise.all(exercices.map(f => {
+    console.log(f.fn, f.file)
+    test[f.fn](f.file)
+  }))
+    .then(e => console.log('ok'))
+    .catch(err => core.setFailed(err))
 
 } catch (ex) {
   core.setFailed(ex.message);
