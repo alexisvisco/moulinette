@@ -17,7 +17,6 @@ const validTitles = [
 ]
 
 try {
-
   if (!github.context.payload || !github.context.payload.pull_request) {
     core.setFailed('not a pull request');
     return
