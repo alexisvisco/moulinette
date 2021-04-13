@@ -17,17 +17,24 @@ const validTitles = [
 ]
 
 try {
-  const title = github.context.payload?.pull_request?.title
+
+  if (github.context.payload && github.context.payload.pull_request) {
+    core.setFailed('not a pull request');
+    return
+  }
+  const title = github.context.payload.pull_request.title
 
   if (!title) {
-    core.setFailed("not a pull request a missing title");
+    core.setFailed('not a pull request a missing title');
+    return
   }
 
   if (!validTitles.includes(title)) {
-    core.setFailed("the title of the pull request must be one of : " + validTitles.join(","));
+    core.setFailed('the title of the pull request must be one of : ' + validTitles.join(','));
+    return
   }
 
-  console.log("Testing: ", title)
+  console.log('Testing: ', title)
 
   const fs = require('fs');
   const files = fs.readdirSync('');
