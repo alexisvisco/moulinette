@@ -8,11 +8,6 @@ inputs:
     required: false
     description: get the pr name
     default: '${{ github.event.pull_request.name }}'
-outputs:
-  context:
-    description: display full context for debug
-  pr_name:
-    description: get pr name
 runs:
   using: 'node12'
   main: 'index.js'

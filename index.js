@@ -2,10 +2,39 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 
+const validTitles = [
+  'd01',
+  'd02',
+  'd03',
+  'd04',
+  'd05',
+  'd06',
+  'r00',
+  'd07',
+  'd08',
+  'd08',
+  'r01',
+]
+
 try {
-  console.log("this is a funky test")
-  console.log(github.context)
-  console.log(core.getInput('pr_name'))
+  const title = github.context.payload?.pull_request?.title
+
+  if (!title) {
+    core.setFailed("not a pull request a missing title");
+  }
+
+  if (!validTitles.includes(title)) {
+    core.setFailed("the title of the pull request must be one of : " + validTitles.join(","));
+  }
+
+  console.log("Testing: ", title)
+
+  const fs = require('fs');
+  const files = fs.readdirSync('');
+
+  files.forEach(e => console.log(e))
+
+
 } catch (ex) {
   core.setFailed(ex.message);
 }
