@@ -3,9 +3,9 @@ const assert = require('uvu/assert');
 const { captureOutput } = require('./utils')
 
 var fs = require('fs');
-var files = fs.readdirSync('./days');
+var files = fs.readdirSync(process.env.RUNNER_WORKSPACE);
 
-console.log(process.env)
+console.log(process.env.RUNNER_WORKSPACE)
 
 console.log("pwd", process.env.PWD)
 files.forEach(f => console.log("FILE: ", f))
