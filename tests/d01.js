@@ -4,11 +4,13 @@ const { captureOutput } = require('./utils')
 
 var fs = require('fs');
 var files = fs.readdirSync('./days');
-var files2= fs.readdirSync(process.env.PWD);
+
+console.log(process.env.PWD)
 
 console.log("pwd", process.env.PWD)
 files.forEach(f => console.log("FILE: ", f))
-files2.forEach(f => console.log("FILE2: ", f))
+
+// files2.forEach(f => console.log("FILE2: ", f))
 
 test('d01/ex00 - Hello world', async () => {
   const { helloWorld } = require('./days/d01/ex00.js')
