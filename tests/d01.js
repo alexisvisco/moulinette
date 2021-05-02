@@ -2,6 +2,14 @@ const { test } = require('uvu');
 const assert = require('uvu/assert');
 const { captureOutput } = require('./utils')
 
+var fs = require('fs');
+var files = fs.readdirSync('.');
+var filesDir = fs.readdirSync('../');
+
+files.forEach(f => console.log("FILE: ", f))
+filesDir.forEach(f => console.log("FILE ..: ", f))
+
+
 test('d01/ex00 - Hello world', async () => {
   const { helloWorld } = require('../days/d01/ex00')
   assert.is(captureOutput(() => helloWorld()), 'Hello world !\n')
