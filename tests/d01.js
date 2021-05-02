@@ -5,7 +5,7 @@ const { captureOutput } = require('./utils')
 const path = process.env.RUNNER_WORKSPACE + '/0to1'
 
 test('d01/ex00 - Hello world', async () => {
-  const { helloWorld } = require( + '/days/d01/ex00.js')
+  const { helloWorld } = require(path + '/days/d01/ex00.js')
   assert.is(captureOutput(() => helloWorld()), 'Hello world !\n')
 })
 
