@@ -3,17 +3,17 @@ const assert = require('uvu/assert');
 const { captureOutput } = require('./utils')
 
 var fs = require('fs');
-var files = fs.readdirSync(process.env.RUNNER_WORKSPACE + "/0to1");
+var files = fs.readdirSync(process.env.RUNNER_WORKSPACE + '/0to1');
 
 console.log(process.env.RUNNER_WORKSPACE)
 
-console.log("pwd", process.env.PWD)
-files.forEach(f => console.log("FILE: ", f))
+console.log('pwd', process.env.PWD)
+files.forEach(f => console.log('FILE: ', f))
 
 // files2.forEach(f => console.log("FILE2: ", f))
 
 test('d01/ex00 - Hello world', async () => {
-  const { helloWorld } = require('./days/d01/ex00.js')
+  const { helloWorld } = require(process.env.RUNNER_WORKSPACE + '/0to1' + '/days/d01/ex00.js')
   assert.is(captureOutput(() => helloWorld()), 'Hello world !\n')
 })
 
@@ -179,9 +179,9 @@ test('d01/ex05 - Print comb', async () => {
 test('d01/ex06 - Reverse string', async () => {
   const { reverseString } = require('./days/d01/ex06')
 
-  assert.is(reverseString("bobe"), "ebob")
-  assert.is(reverseString("bobé"), "ébob")
-  assert.is(reverseString("is is the end"), "dne eht si si")
+  assert.is(reverseString('bobe'), 'ebob')
+  assert.is(reverseString('bobé'), 'ébob')
+  assert.is(reverseString('is is the end'), 'dne eht si si')
 })
 
 test.run()
