@@ -2,28 +2,21 @@ const { test } = require('uvu');
 const assert = require('uvu/assert');
 const { captureOutput } = require('./utils')
 
-var fs = require('fs');
-var files = fs.readdirSync('.');
-var filesDir = fs.readdirSync('../');
-
-files.forEach(f => console.log("FILE: ", f))
-filesDir.forEach(f => console.log("FILE ..: ", f))
-
 
 test('d01/ex00 - Hello world', async () => {
-  const { helloWorld } = require('../days/d01/ex00')
+  const { helloWorld } = require('./days/d01/ex00')
   assert.is(captureOutput(() => helloWorld()), 'Hello world !\n')
 })
 
 test('d01/ex01 - Print alphabet', async () => {
-  const { printAlphabet } = require('../days/d01/ex01')
+  const { printAlphabet } = require('./days/d01/ex01')
 
   assert.is(captureOutput(() => printAlphabet(false)), 'abcdefghijklmnopqrstuvwxyz\n')
   assert.is(captureOutput(() => printAlphabet(true)), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\n')
 })
 
 test('d01/ex02 - Print alphabet reversed', async () => {
-  const { printAlphabetReversed } = require('../days/d01/ex02')
+  const { printAlphabetReversed } = require('./days/d01/ex02')
 
   assert.is(captureOutput(() => printAlphabetReversed(false, false)), 'abcdefghijklmnopqrstuvwxyz\n')
   assert.is(captureOutput(() => printAlphabetReversed(true, false)), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\n')
@@ -33,7 +26,7 @@ test('d01/ex02 - Print alphabet reversed', async () => {
 })
 
 test('d01/ex03 - Print all digits N times', async () => {
-  const { printAllDigitsNTimes } = require('../days/d01/ex03')
+  const { printAllDigitsNTimes } = require('./days/d01/ex03')
 
   assert.is(captureOutput(() => printAllDigitsNTimes(0)), '')
   assert.is(captureOutput(() => printAllDigitsNTimes(2)), '0123456789\n0123456789\n')
@@ -41,7 +34,7 @@ test('d01/ex03 - Print all digits N times', async () => {
 })
 
 test('d01/ex04 - Is negative', async () => {
-  const { isNegative } = require('../days/d01/ex04')
+  const { isNegative } = require('./days/d01/ex04')
 
   assert.is(isNegative(1), false)
   assert.is(isNegative(0), false)
@@ -49,7 +42,7 @@ test('d01/ex04 - Is negative', async () => {
 })
 
 test('d01/ex05 - Print comb', async () => {
-  const { printComb } = require('../days/d01/ex05')
+  const { printComb } = require('./days/d01/ex05')
 
   assert.is(captureOutput((() => printComb())), `012
 013
@@ -175,7 +168,7 @@ test('d01/ex05 - Print comb', async () => {
 })
 
 test('d01/ex06 - Reverse string', async () => {
-  const { reverseString } = require('../days/d01/ex06')
+  const { reverseString } = require('./days/d01/ex06')
 
   assert.is(reverseString("bobe"), "ebob")
   assert.is(reverseString("bobé"), "ébob")

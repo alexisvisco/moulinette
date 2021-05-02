@@ -3,7 +3,7 @@ const assert = require('uvu/assert');
 const { captureOutput, desc } = require('./utils')
 
 test('d02/ex00 - Basic atoi', async () => {
-  const { basicAtoi } = require('../days/d02/ex00')
+  const { basicAtoi } = require('./days/d02/ex00')
   assert.is(basicAtoi('123'), 123, 'tested with 123')
   assert.is(basicAtoi('000123'), 123, 'tested with 000123')
   assert.is(basicAtoi('000101293748'), 101293748, 'tested with 000101293748')
@@ -11,13 +11,13 @@ test('d02/ex00 - Basic atoi', async () => {
 })
 
 test('d02/ex01 - Div mod', async () => {
-  const { divMod } = require('../days/d02/ex01')
+  const { divMod } = require('./days/d02/ex01')
   assert.equal(divMod(13, 2), { div: 6, mod: 1 })
   assert.equal(divMod(15, 2), { div: 7, mod: 1 })
 })
 
 test('d02/ex02 - Swap', async () => {
-  const { swap } = require('../days/d02/ex02')
+  const { swap } = require('./days/d02/ex02')
   const ref1 = { a: 1 }
   const ref2 = { a: 5 }
 
@@ -29,7 +29,7 @@ test('d02/ex02 - Swap', async () => {
 
 
 test('d02/ex03 - Sort integer', async () => {
-  const { sortInteger } = require('../days/d02/ex03')
+  const { sortInteger } = require('./days/d02/ex03')
 
   assert.equal(sortInteger([1]), [1])
   assert.equal(sortInteger([]), [])
@@ -38,7 +38,7 @@ test('d02/ex03 - Sort integer', async () => {
 })
 
 test('d02/ex04 - RNA Transcription', async () => {
-  const { toRna } = require('../days/d02/ex04')
+  const { toRna } = require('./days/d02/ex04')
 
   assert.equal(toRna(''), '');
 
@@ -54,7 +54,7 @@ test('d02/ex04 - RNA Transcription', async () => {
 })
 
 test('d02/ex05 - Bank account', async () => {
-  const { BankAccount, ValueError } = require('../days/d02/ex05')
+  const { BankAccount, ValueError } = require('./days/d02/ex05')
 
   desc('newly opened account has zero balance', () => {
     const account = new BankAccount();
@@ -161,7 +161,7 @@ test('d02/ex05 - Bank account', async () => {
 
 
 test('d02/ex06 - Keep and discard', async () => {
-  const { keep, discard } = require('../days/d02/ex06')
+  const { keep, discard } = require('./days/d02/ex06')
 
   desc('keeps on empty array returns empty array', () => {
     assert.equal(keep([], (e) => e < 10), []);
