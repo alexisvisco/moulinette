@@ -2,6 +2,8 @@ const { test } = require('uvu');
 const assert = require('uvu/assert');
 const { captureOutput, desc } = require('./utils')
 
+const path = process.env.RUNNER_WORKSPACE + '/0to1'
+
 const eggs = { flag: 1, name: 'eggs' }
 const peanuts = { flag: 2, name: 'peanuts' }
 const shellfish = { flag: 4, name: 'shellfish' }
@@ -13,7 +15,7 @@ const cats = { flag: 128, name: 'cats' }
 const ignore = { flag: 128 << 2, name: 'ignore' }
 
 test('d03/ex00 - Allergies from score', async () => {
-  const { allergies } = require('./days/d03/ex00')
+  const { allergies } = require(path + '/days/d03/ex00')
 
   assert.equal(allergies(peanuts.flag | chocolate.flag), ['peanuts', 'chocolate'],
     `tested with value ${peanuts.flag | chocolate.flag}`)
@@ -29,7 +31,7 @@ test('d03/ex00 - Allergies from score', async () => {
 })
 
 test('d03/ex01 - Score from allergies', async () => {
-  const { score } = require('./days/d03/ex01')
+  const { score } = require(path + '/days/d03/ex01')
 
 
   assert.equal(score([eggs.flag, pollen.flag]), 0b1000001,
@@ -49,7 +51,7 @@ test('d03/ex01 - Score from allergies', async () => {
 })
 
 test('d03/ex02 - Simple bloom filter', async () => {
-  const { BloomFilter } = require('./days/d03/ex02')
+  const { BloomFilter } = require(path + '/days/d03/ex02')
 
   const bloom = new BloomFilter(['alexis@outlook.fr', 'b'])
 
@@ -69,7 +71,7 @@ test('d03/ex02 - Simple bloom filter', async () => {
 })
 
 test('d03/ex03 - Matching bracket', async () => {
-  const { isPaired } = require('./days/d03/ex03')
+  const { isPaired } = require(path + '/days/d03/ex03')
 
   desc('paired square brackets', () => {
     assert.equal(isPaired('[]'), true, 'tested with []');
@@ -130,7 +132,7 @@ test('d03/ex03 - Matching bracket', async () => {
 })
 
 test('d03/ex04 - Run length encoding', async () => {
-  const { encode, decode } = require('./days/d03/ex04')
+  const { encode, decode } = require(path + '/days/d03/ex04')
 
   desc('encode empty string', () => {
     assert.equal(encode(''), (''), 'tested with empty string');
