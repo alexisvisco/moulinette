@@ -2,6 +2,10 @@ const { test } = require('uvu');
 const assert = require('uvu/assert');
 const { captureOutput } = require('./utils')
 
+var fs = require('fs');
+var files = fs.readdirSync('./days');
+
+files.forEach(f => console.log("FILE: ", f))
 
 test('d01/ex00 - Hello world', async () => {
   const { helloWorld } = require('./days/d01/ex00')
