@@ -3,7 +3,7 @@ const assert = require('uvu/assert');
 const { captureOutput } = require('./utils')
 
 var fs = require('fs');
-var files = fs.readdirSync(process.env.RUNNER_WORKSPACE);
+var files = fs.readdirSync(process.env.RUNNER_WORKSPACE + "/0to1");
 
 console.log(process.env.RUNNER_WORKSPACE)
 
