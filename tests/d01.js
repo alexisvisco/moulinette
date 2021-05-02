@@ -5,7 +5,7 @@ const { captureOutput } = require('./utils')
 var fs = require('fs');
 var files = fs.readdirSync('./days');
 
-console.log(process.env.PWD)
+console.log(process.env)
 
 console.log("pwd", process.env.PWD)
 files.forEach(f => console.log("FILE: ", f))
