@@ -3,18 +3,10 @@ const github = require('@actions/github');
 const { test } = require('uvu');
 
 
-const daysAndRushes = [
+const days = [
   'd01',
   'd02',
   'd03',
-  'd04',
-  'd05',
-  'd06',
-  'r00',
-  'd07',
-  'd08',
-  'd08',
-  'r01',
 ]
 
 try {
@@ -30,17 +22,20 @@ try {
     return
   }
 
-  if (!daysAndRushes.includes(title)) {
-    core.setFailed('the title of the pull request must be one of : ' + daysAndRushes.join(', '));
+  if (!days.includes(title)) {
+    core.setFailed('the title of the pull request must be one of : ' + days.join(', '));
     return
   }
 
   switch (title) {
     case 'd01':
-      require('./tests/day01');
+      require('./tests/d01');
       break
     case 'd02':
-      require('./tests/day02');
+      require('./tests/d02');
+      break
+    case 'd03':
+      require('./tests/d03');
       break
   }
 } catch (ex) {

@@ -14,5 +14,14 @@ module.exports = {
     console.log = origin
 
     return str
+  },
+
+  desc(str, test) {
+    try {
+      test()
+    } catch (e) {
+      e.message = str + " ; " + e.message
+      throw e
+    }
   }
 }
