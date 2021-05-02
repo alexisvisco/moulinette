@@ -5,10 +5,9 @@ branding:
   icon: check
 inputs:
   pr_name:
-    default: ${{ github.event.pull_request.name }}
-outputs:
-  context:
-  pr_name:
+    required: false
+    description: get the pr name
+    default: '${{ github.event.pull_request.name }}'
 runs:
   using: 'node12'
   main: 'index.js'
