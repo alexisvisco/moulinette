@@ -4,22 +4,22 @@ const { captureOutput, desc } = require('./utils')
 
 const path = process.env.RUNNER_WORKSPACE + '/0to1'
 
-test('d02/ex00 - Basic atoi', async () => {
-  const { basicAtoi } = require(path + '/days/d02/ex00')
+test('day02/ex00 - Basic atoi', async () => {
+  const { basicAtoi } = require(path + '/days/day02/ex00')
   assert.is(basicAtoi('123'), 123, 'tested with 123')
   assert.is(basicAtoi('000123'), 123, 'tested with 000123')
   assert.is(basicAtoi('000101293748'), 101293748, 'tested with 000101293748')
   assert.is(basicAtoi('09'), 9, 'tested with 09')
 })
 
-test('d02/ex01 - Div mod', async () => {
-  const { divMod } = require(path + '/days/d02/ex01')
+test('day02/ex01 - Div mod', async () => {
+  const { divMod } = require(path + '/days/day02/ex01')
   assert.equal(divMod(13, 2), { div: 6, mod: 1 })
   assert.equal(divMod(15, 2), { div: 7, mod: 1 })
 })
 
-test('d02/ex02 - Swap', async () => {
-  const { swap } = require(path + '/days/d02/ex02')
+test('day02/ex02 - Swap', async () => {
+  const { swap } = require(path + '/days/day02/ex02')
   const ref1 = { a: 1 }
   const ref2 = { a: 5 }
 
@@ -30,8 +30,8 @@ test('d02/ex02 - Swap', async () => {
 })
 
 
-test('d02/ex03 - Sort integer', async () => {
-  const { sortInteger } = require(path + '/days/d02/ex03')
+test('day02/ex03 - Sort integer', async () => {
+  const { sortInteger } = require(path + '/days/day02/ex03')
 
   assert.equal(sortInteger([1]), [1])
   assert.equal(sortInteger([]), [])
@@ -39,8 +39,8 @@ test('d02/ex03 - Sort integer', async () => {
   assert.equal(sortInteger([-82, 83, 3, 1, 10, 100]), [-82, 1, 3, 10, 83, 100])
 })
 
-test('d02/ex04 - RNA Transcription', async () => {
-  const { toRna } = require(path + '/days/d02/ex04')
+test('day02/ex04 - RNA Transcription', async () => {
+  const { toRna } = require(path + '/days/day02/ex04')
 
   assert.equal(toRna(''), '');
 
@@ -55,8 +55,8 @@ test('d02/ex04 - RNA Transcription', async () => {
   assert.equal(toRna('ACGTGGTCTTAA'), 'UGCACCAGAAUU');
 })
 
-test('d02/ex05 - Bank account', async () => {
-  const { BankAccount, ValueError } = require(path + '/days/d02/ex05')
+test('day02/ex05 - Bank account', async () => {
+  const { BankAccount, ValueError } = require(path + '/days/day02/ex05')
 
   desc('newly opened account has zero balance', () => {
     const account = new BankAccount();
@@ -162,8 +162,8 @@ test('d02/ex05 - Bank account', async () => {
 })
 
 
-test('d02/ex06 - Keep and discard', async () => {
-  const { keep, discard } = require(path + '/days/d02/ex06')
+test('day02/ex06 - Keep and discard', async () => {
+  const { keep, discard } = require(path + '/days/day02/ex06')
 
   desc('keeps on empty array returns empty array', () => {
     assert.equal(keep([], (e) => e < 10), []);

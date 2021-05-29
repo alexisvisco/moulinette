@@ -14,8 +14,8 @@ const pollen = { flag: 64, name: 'pollen' }
 const cats = { flag: 128, name: 'cats' }
 const ignore = { flag: 128 << 2, name: 'ignore' }
 
-test('d03/ex00 - Allergies from score', async () => {
-  const { allergies } = require(path + '/days/d03/ex00')
+test('day03/ex00 - Allergies from score', async () => {
+  const { allergies } = require(path + '/days/day03/ex00')
 
   assert.equal(allergies(peanuts.flag | chocolate.flag), ['peanuts', 'chocolate'],
     `tested with value ${peanuts.flag | chocolate.flag}`)
@@ -30,8 +30,8 @@ test('d03/ex00 - Allergies from score', async () => {
     `tested with value ${257}`)
 })
 
-test('d03/ex01 - Score from allergies', async () => {
-  const { score } = require(path + '/days/d03/ex01')
+test('day03/ex01 - Score from allergies', async () => {
+  const { score } = require(path + '/days/day03/ex01')
 
 
   assert.equal(score([eggs.flag, pollen.flag]), 0b1000001,
@@ -50,8 +50,8 @@ test('d03/ex01 - Score from allergies', async () => {
     `tested with value ${[349237]}`)
 })
 
-test('d03/ex02 - Simple bloom filter', async () => {
-  const { BloomFilter } = require(path + '/days/d03/ex02')
+test('day03/ex02 - Simple bloom filter', async () => {
+  const { BloomFilter } = require(path + '/days/day03/ex02')
 
   const bloom = new BloomFilter(['alexis@outlook.fr', 'b'])
 
@@ -70,8 +70,8 @@ test('d03/ex02 - Simple bloom filter', async () => {
   assert.equal(bloom.bits, 0)
 })
 
-test('d03/ex03 - Matching bracket', async () => {
-  const { isPaired } = require(path + '/days/d03/ex03')
+test('day03/ex03 - Matching bracket', async () => {
+  const { isPaired } = require(path + '/days/day03/ex03')
 
   desc('paired square brackets', () => {
     assert.equal(isPaired('[]'), true, 'tested with []');
@@ -131,8 +131,8 @@ test('d03/ex03 - Matching bracket', async () => {
   });
 })
 
-test('d03/ex04 - Run length encoding', async () => {
-  const { encode, decode } = require(path + '/days/d03/ex04')
+test('day03/ex04 - Run length encoding', async () => {
+  const { encode, decode } = require(path + '/days/day03/ex04')
 
   desc('encode empty string', () => {
     assert.equal(encode(''), (''), 'tested with empty string');

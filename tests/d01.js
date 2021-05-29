@@ -4,20 +4,20 @@ const { captureOutput } = require('./utils')
 
 const path = process.env.RUNNER_WORKSPACE + '/0to1'
 
-test('d01/ex00 - Hello world', async () => {
-  const { helloWorld } = require(path + '/days/d01/ex00.js')
+test('day01/ex00 - Hello world', async () => {
+  const { helloWorld } = require(path + '/days/day01/ex00.js')
   assert.is(captureOutput(() => helloWorld()), 'Hello world !\n')
 })
 
-test('d01/ex01 - Print alphabet', async () => {
-  const { printAlphabet } = require(path + '/days/d01/ex01')
+test('day01/ex01 - Print alphabet', async () => {
+  const { printAlphabet } = require(path + '/days/day01/ex01')
 
   assert.is(captureOutput(() => printAlphabet(false)), 'abcdefghijklmnopqrstuvwxyz\n')
   assert.is(captureOutput(() => printAlphabet(true)), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\n')
 })
 
-test('d01/ex02 - Print alphabet reversed', async () => {
-  const { printAlphabetReversed } = require(path + '/days/d01/ex02')
+test('day01/ex02 - Print alphabet reversed', async () => {
+  const { printAlphabetReversed } = require(path + '/days/day01/ex02')
 
   assert.is(captureOutput(() => printAlphabetReversed(false, false)), 'abcdefghijklmnopqrstuvwxyz\n')
   assert.is(captureOutput(() => printAlphabetReversed(true, false)), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ\n')
@@ -26,24 +26,24 @@ test('d01/ex02 - Print alphabet reversed', async () => {
   assert.is(captureOutput(() => printAlphabetReversed(true, true)), 'ZYXWVUTSRQPONMLKJIHGFEDCBA\n')
 })
 
-test('d01/ex03 - Print all digits N times', async () => {
-  const { printAllDigitsNTimes } = require(path + '/days/d01/ex03')
+test('day01/ex03 - Print all digits N times', async () => {
+  const { printAllDigitsNTimes } = require(path + '/days/day01/ex03')
 
   assert.is(captureOutput(() => printAllDigitsNTimes(0)), '')
   assert.is(captureOutput(() => printAllDigitsNTimes(2)), '0123456789\n0123456789\n')
   assert.is(captureOutput(() => printAllDigitsNTimes(8)), '0123456789\n0123456789\n0123456789\n0123456789\n0123456789\n0123456789\n0123456789\n0123456789\n')
 })
 
-test('d01/ex04 - Is negative', async () => {
-  const { isNegative } = require(path + '/days/d01/ex04')
+test('day01/ex04 - Is negative', async () => {
+  const { isNegative } = require(path + '/days/day01/ex04')
 
   assert.is(isNegative(1), false)
   assert.is(isNegative(0), false)
   assert.is(isNegative(-1), true)
 })
 
-test('d01/ex05 - Print comb', async () => {
-  const { printComb } = require(path + '/days/d01/ex05')
+test('day01/ex05 - Print comb', async () => {
+  const { printComb } = require(path + '/days/day01/ex05')
 
   assert.is(captureOutput((() => printComb())), `012
 013
@@ -168,8 +168,8 @@ test('d01/ex05 - Print comb', async () => {
 `)
 })
 
-test('d01/ex06 - Reverse string', async () => {
-  const { reverseString } = require(path + '/days/d01/ex06')
+test('day01/ex06 - Reverse string', async () => {
+  const { reverseString } = require(path + '/days/day01/ex06')
 
   assert.is(reverseString('bobe'), 'ebob')
   assert.is(reverseString('bobé'), 'ébob')
