@@ -5,8 +5,11 @@ const { test } = require('uvu');
 
 const days = [
   'd01',
+  'D01',
   'd02',
+  'D02',
   'd03',
+  'D03',
 ]
 
 try {
@@ -29,12 +32,15 @@ try {
 
   switch (title) {
     case 'd01':
+    case 'D01':
       require('./tests/d01');
       break
     case 'd02':
+    case 'D02':
       require('./tests/d02');
       break
     case 'd03':
+    case 'D03':
       require('./tests/d03');
       break
   }
